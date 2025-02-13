@@ -175,7 +175,7 @@ export default function Page() {
       {DATA.skills.map((skill, id) => (
         <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
           <div className="flex items-center gap-2 bg-gray-800 text-white px-3 py-2 rounded-lg shadow-md">
-           {skill?.logo && <img src={skill.logo} alt={skill.name} className="w-6 h-6" /> } 
+           {skill.logo && <img src={skill.logo} alt={skill.name} className="w-6 h-6" /> } 
             <span className="text-sm font-medium">{skill.name}</span>
           </div>
         </BlurFade>

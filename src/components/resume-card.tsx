@@ -15,9 +15,9 @@ interface ResumeCardProps {
   title: string;
   subtitle?: string;
   href?: string;
-  badges?: readonly string[];
+  badges?:  string[];
   period: string;
-  description?: string[];
+  description: string[] | any;
 }
 export const ResumeCard = ({
   logoUrl,
@@ -99,7 +99,7 @@ export const ResumeCard = ({
     }}
     className="mt-2 text-xs sm:text-sm space-y-1"
   >
-    {description.map((point, index) => (
+    {description.map((point:string, index:number) => (
       <div key={index} className="flex items-start gap-2">
         <span className="text-lg">🚀</span>
         <span>{point}</span>
