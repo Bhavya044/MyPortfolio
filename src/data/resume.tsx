@@ -40,7 +40,7 @@ export const DATA = {
     tel: "+916283315811",
     social: {
       GitHub: { name: "GitHub", url: "https://github.com/Bhavya044",icon: Icons.github,navbar:true },
-      LinkedIn: { name: "LinkedIn", url: "https://linkedin.com/in/bhavya-suri044",navbar:true ,   icon: Icons.linkedin,},
+      LinkedIn: { name: "LinkedIn", url: "https://linkedin.com/in/bhavya-suri044",navbar:true ,  icon: Icons.linkedin,},
     },
   },
   work: [
@@ -133,4 +133,4 @@ export const DATA = {
     },
   
   ],
-} as any;
+} ;
