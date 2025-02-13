@@ -133,4 +133,4 @@ export const DATA = {
     },
   
   ],
-} as const;
+} as any;

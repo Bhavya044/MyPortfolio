@@ -112,7 +112,7 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
             <h2 className="text-xl font-bold">Work Experience</h2>
           </BlurFade>
-          {DATA.work.map((work, id) => (
+          {DATA.work.map((work:any, id:number) => (
             <BlurFade
               key={work.company}
               delay={BLUR_FADE_DELAY * 6 + id * 0.05}
@@ -137,7 +137,7 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <h2 className="text-xl font-bold">Education</h2>
           </BlurFade>
-          {DATA.education.map((education, id) => (
+          {DATA.education.map((education:any, id:number) => (
             <BlurFade
               key={education.school}
               delay={BLUR_FADE_DELAY * 8 + id * 0.05}
@@ -172,7 +172,7 @@ export default function Page() {
      <h2 className="text-xl font-bold">🚀 Skills</h2>
    </BlurFade>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-      {DATA.skills.map((skill, id) => (
+      {DATA.skills.map((skill:any, id:number) => (
         <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
           <div className="flex items-center gap-2 bg-gray-800 text-white px-3 py-2 rounded-lg shadow-md">
            {skill.logo && <img src={skill.logo} alt={skill.name} className="w-6 h-6" /> } 
@@ -194,7 +194,7 @@ export default function Page() {
       <h2 className="text-xl font-bold text-center">📜 Certifications</h2>
     </BlurFade>
     <div className="flex items-center justify-center">
-      {DATA.certifications.map((cert, id) => (
+      {DATA.certifications.map((cert:any, id:number) => (
          <ShineBorder
          key={id}
          color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
@@ -246,7 +246,7 @@ export default function Page() {
             </div>
           </BlurFade>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
-            {DATA.projects.map((project, id) => (
+            {DATA.projects.map((project:any, id:number) => (
               <BlurFade
                 key={project.title}
                 delay={BLUR_FADE_DELAY * 12 + id * 0.05}
