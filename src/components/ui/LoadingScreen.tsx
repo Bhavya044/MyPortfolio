@@ -21,7 +21,7 @@ export default function LoadingScreen() {
   return (
   
      <div className="mx-20 text-xl">
-            <TypingAnimation>&gt; Initializing Bhavya's Portfolio 🚀</TypingAnimation>
+            <TypingAnimation>&gt; Initializing Bhavya&apos;s Portfolio 🚀</TypingAnimation>
 
             <AnimatedSpan delay={1500} className="text-green-500">
               <span>✔ Booting up creativity engine... 🎨</span>

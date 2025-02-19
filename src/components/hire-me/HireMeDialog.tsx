@@ -28,11 +28,12 @@ const HireMeDialog: React.FC<{ isOpen: boolean; setIsOpen: (val: boolean) => voi
 
     const result = formSchema.safeParse({ ...formData, [name]: value });
     if (!result.success) {
-      const fieldError = result.error.formErrors.fieldErrors[name];
+      const fieldError = result.error.formErrors.fieldErrors[name as keyof typeof result.error.formErrors.fieldErrors];
       setErrors((prev) => ({ ...prev, [name]: fieldError ? fieldError[0] : "" }));
     } else {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
+    
   };
 
   // ✉️ Handle form submission with validation
@@ -92,7 +93,7 @@ const HireMeDialog: React.FC<{ isOpen: boolean; setIsOpen: (val: boolean) => voi
           transition={{ duration: 0.3 }}
           className="bg-gray-900 rounded-lg p-8 shadow-lg border border-gray-700 w-full max-w-lg"
         >
-          <h2 className="text-3xl font-bold text-green-400 mb-6">Let's Work Together 🚀</h2>
+          <h2 className="text-3xl font-bold text-green-400 mb-6">Let&apos;s Work Together 🚀</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Name Field */}
             <div>
