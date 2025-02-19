@@ -1,0 +1,16 @@
+{
+    "redirects": [
+      {
+        "source": "/(.*)",
+        "has": [
+          {
+            "type": "host",
+            "value": "bhavya-portfolio-git-master-bhavya044s-projects.vercel.app"
+          }
+        ],
+        "destination": "https://www.bhavyasuridev.tech/$1",
+        "permanent": true
+      }
+    ]
+  }
+  
