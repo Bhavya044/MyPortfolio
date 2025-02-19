@@ -1,17 +1,16 @@
-import Navbar from "@/components/navbar";
-import { ThemeProvider } from "@/components/theme-provider";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
-import { WarpBackground } from "@/components/magicui/warp-background";
+import { Fira_Code as FontCode } from "next/font/google";
+import { PointerWrapper } from "@/components/magicui/pointer";
 
 import "./globals.css";
+import Navbar from "@/components/navbar";
 
-const fontSans = FontSans({
+const fontCode = FontCode({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-code",
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -47,9 +46,9 @@ export const metadata: Metadata = {
     google: "",
     yandex: "",
   },
-  icons:{
-    icon:"./indexImage.ico"
-  }
+  icons: {
+    icon: "./indexImage.ico",
+  },
 };
 
 export default function RootLayout({
@@ -58,19 +57,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
-          fontSans.variable
+          "min-h-screen bg-gradient-to-tr from-blue-900  via-gray-900 to-emerald-800 font-sans antialiased ",
+          fontCode.variable
         )}
       >
-      <ThemeProvider attribute="class" defaultTheme="light">
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-          </TooltipProvider>
-        </ThemeProvider>
+<Navbar/>
+        {/* Main Content */}
+              {children}
       </body>
     </html>
   );
