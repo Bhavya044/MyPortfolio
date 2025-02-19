@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaHome, FaUser, FaProjectDiagram, FaFileAlt } from "react-icons/fa";
 import { CgWorkAlt } from "react-icons/cg";
+import HireMeDialog from "./hire-me/HireMeDialog";
 
 interface ITabs {
   name: string;
@@ -25,6 +26,7 @@ export default function Navbar() {
   ];
 
   const [currentTab, setCurrentTab] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const matching: ITabs | undefined = tabs.find((tab) => tab.to === pathname);
@@ -57,9 +59,11 @@ export default function Navbar() {
 
         {/* "Hire me" Button on the Right */}
         <div className="absolute right-8">
-          <InteractiveHoverButton className="bg-neonGreen hover:bg-black text-sm text-black">
+          <InteractiveHoverButton     onClick={() => setIsOpen(true)} className="bg-neonGreen hover:bg-black text-sm text-black">
             Hire Me
           </InteractiveHoverButton>
+          
+          <HireMeDialog isOpen={isOpen} setIsOpen={setIsOpen}/>
         </div>
       </div>
     </div>

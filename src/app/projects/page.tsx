@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import LoadingScreen from "@/components/ui/LoadingScreen";
-import ExperienceSection from "@/components/experience/Experience";
+import Projects from "@/components/projects/Projects";
 
 const Page = () => {
   const [loading, setLoading] = useState(true);
@@ -12,7 +12,7 @@ const Page = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  return loading ? <LoadingScreen /> : <ExperienceSection />;
+  return loading ? <LoadingScreen /> : <Projects />;
 };
 
 export default Page;

@@ -68,7 +68,7 @@ export default function RootLayout({
         color={"#ffffff"}
         refresh
       />
-        <AnimatedCursor innerSize={8} outerSize={10} color="168, 30, 88" />
+        <AnimatedCursor innerSize={15} outerSize={10} color="168, 30, 88" />
 
         <div className="w-full max-w-6xl rounded-lg border border-gray-700 shadow-2xl bg-gray-900 font-mono">
           {/* Terminal Header */}

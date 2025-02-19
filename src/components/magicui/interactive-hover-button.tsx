@@ -3,12 +3,14 @@ import { cn } from "@/lib/utils";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 interface InteractiveHoverButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    icon?: React.ReactNode
+  }
 
 export const InteractiveHoverButton = React.forwardRef<
   HTMLButtonElement,
   InteractiveHoverButtonProps
->(({ children, className, ...props }, ref) => {
+>(({ children, icon , className, ...props }, ref) => {
   return (
     <button
       ref={ref}
@@ -26,7 +28,7 @@ export const InteractiveHoverButton = React.forwardRef<
       </div>
       <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-foreground opacity-0 transition-all duration-300 group-hover:-translate-x-5 group-hover:opacity-100">
         <span>{children}</span>
-        <ArrowRightIcon />
+       { icon ?? <ArrowRightIcon />}
       </div>
     </button>
   );

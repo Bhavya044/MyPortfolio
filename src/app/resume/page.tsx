@@ -2,17 +2,17 @@
 
 import React, { useEffect, useState } from "react";
 import LoadingScreen from "@/components/ui/LoadingScreen";
-import ExperienceSection from "@/components/experience/Experience";
+import ResumeSection from "@/components/resume/Resume";
 
 const Page = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 4000); // 2-second delay
+    const timer = setTimeout(() => setLoading(false), 4000);
     return () => clearTimeout(timer);
   }, []);
 
-  return loading ? <LoadingScreen /> : <ExperienceSection />;
+  return loading ? <LoadingScreen /> : <ResumeSection />;
 };
 
 export default Page;
