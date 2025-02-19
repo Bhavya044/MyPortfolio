@@ -9,17 +9,15 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  prefix: "",
   theme: {
     extend: {
       colors: {
-        primary: 
-        "#39FF14",
-		 foreground: "white",
+        primary: "#39FF14",
+        foreground: "white",
         neonGreen: "#39FF14",
       },
       fontFamily: {
-        sans: ["Helvetica", "Arial", "sans-serif"],
+        sans: ["var(--font-code)", ...fontFamily.sans],
       },
     },
   },

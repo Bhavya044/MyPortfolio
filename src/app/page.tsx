@@ -1,31 +1,60 @@
-"use client"
-
-
-import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
-import { ProjectCard } from "@/components/project-card";
-import { ResumeCard } from "@/components/resume-card";
-import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
-import { ShineBorder } from "@/components/magicui/shine-border";
-import { ShimmerButton } from "@/components/magicui/shimmer-button";
-
-
-import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa6"; // Use "fa6" for latest FontAwesome icons
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { DATA } from "@/data/resume";
-import Link from "next/link";
-import Markdown from "react-markdown";
-import { cn } from "@/lib/utils";
-
-const BLUR_FADE_DELAY = 0.04;
-import { PointerWrapper } from "@/components/magicui/pointer";
+"use client";
+import Image from "next/image";
+import { TypingAnimation } from "@/components/magicui/typing-animation";
 
 export default function Page() {
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
+    <div>
+      <div className="grid grid-cols-2 gap-6 justify-between">
+        <div className="flex flex-col gap-6">
+          <div className="bg-neonGreen p-2 px-7 h-max w-max rounded-xl shadow-lg">
+            <TypingAnimation
+              className="text-black text-lg font-semibold"
+              startOnView
+              delay={5}
+            >
+              Hi there! I am Bhavya! 👋
+            </TypingAnimation>
+          </div>
 
+          <div className="text-4xl bg-clip-text">
+            A Full Stack Developer
+          </div>
 
-    </main>
+          <div className="text-base leading-relaxed text-gray-300">
+            with experience in crafting{" "}
+            <span className="text-orange-400">scalable web apps</span> using{" "}
+            <span className="text-cyan-400">React</span>,{" "}
+            <span className="text-purple-400">TypeScript</span>, and{" "}
+            <span className="text-pink-400">Express.js</span>.
+            <br />
+            In my free time, you will find me{" "}
+            <span className="text-yellow-400">
+              exploring the latest tech trends
+            </span>
+            ,{" "}
+            <span className="text-emerald-400">tinkering with side projects</span>
+            , or binge-watching{" "}
+            <span className="text-red-400">coding tutorials</span> I’ll probably
+            never use. 😄 Let’s build something{" "}
+            <span className="text-green-400">awesome together</span>! 🚀✨
+          </div>
+
+          <div className="border py-2 border-neonGreen px-6 rounded-2xl w-max mt-3 text-white shadow-lg ">
+            ✨ Open to Work ✨
+          </div>
+        </div>
+
+        <div className="flex justify-center items-center">
+            <Image
+              src="/MyImage.png"
+              width={250}
+              height={100}
+              className="rounded-full border-4 border-gray-800"
+              alt="Picture of the author"
+            />
+          </div>
+      </div>
+    </div>
   );
 }
