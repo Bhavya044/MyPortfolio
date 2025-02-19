@@ -1,84 +1,71 @@
-import { Dock, DockIcon } from "@/components/magicui/dock";
-import { ModeToggle } from "@/components/mode-toggle";
-import { buttonVariants } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { DATA } from "@/data/resume";
-import { cn } from "@/lib/utils";
+"use client";
+
+import { usePathname } from "next/navigation";
+import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { FaHome, FaUser, FaProjectDiagram, FaFileAlt } from "react-icons/fa";
+import { CgWorkAlt } from "react-icons/cg";
+import HireMeDialog from "./hire-me/HireMeDialog";
+
+interface ITabs {
+  name: string;
+  to: string;
+  icon: React.ReactNode;
+}
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  const tabs: ITabs[] = [
+    { name: "Home", to: "/", icon: <FaHome className="text-lg" /> },
+    { name: "About", to: "/about", icon: <FaUser className="text-lg" /> },
+    { name: "Experience", to: "/experience", icon: <CgWorkAlt className="text-lg" /> },
+    { name: "Projects", to: "/projects", icon: <FaProjectDiagram className="text-lg" /> },
+    { name: "Resume", to: "/resume", icon: <FaFileAlt className="text-lg" /> },
+  ];
+
+  const [currentTab, setCurrentTab] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const matching: ITabs | undefined = tabs.find((tab) => tab.to === pathname);
+    if (matching) setCurrentTab(matching.name);
+  }, [pathname]);
+
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-4 flex origin-bottom h-full max-h-14">
-      <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>
-      <Dock className="z-50 pointer-events-auto relative mx-auto flex min-h-full h-full items-center px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
-        {DATA.navbar.map((item:any) => (
-          <DockIcon key={item.href}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-              {
-                item?.type!=="mail " ?
-                  <Link
-               href={item.href}
-                className={cn(
-                  buttonVariants({ variant: "ghost", size: "icon" }),
-                  "size-12"
-                )}
-              >
-                <item.icon className="size-4" />
-              </Link> :
-              
-              <a className={cn(
-                buttonVariants({ variant: "ghost", size: "icon" }),
-                "size-12"
-              )} href={`mailto:${item?.href}`}><item.icon className="size-4" /></a>
-              } 
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{item.label}</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-        ))}
-        <Separator orientation="vertical" className="h-full" />
-        {Object.entries(DATA.contact.social)
-          .filter(([_, social]) => social.navbar)
-          .map(([name, social]) => (
-            <DockIcon key={name}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={social.url}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12"
-                    )}
-                  >
-                    <social.icon className="size-4" />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{name}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
+    <div className="relative w-full">
+      <div className="flex w-full items-center justify-center relative py-1">
+        {/* Centered Tabs */}
+        <div className="flex gap-4 border border-gray-500 rounded-3xl p-4 px-8 bg-transparent">
+          {tabs.map((tab, i) => (
+            <Link
+              href={tab.to}
+              key={i}
+              className={`p-1 text-sm flex items-center gap-2 transition-all duration-300 ease-in-out ${
+                currentTab === tab.name
+                  ? "text-black bg-neonGreen rounded-3xl px-4"
+                  : "text-white hover:underline"
+              }`}
+              role="button"
+              tabIndex={0}
+              onClick={() => setCurrentTab(tab.name)}
+            >
+              {tab.icon}
+              {tab.name}
+            </Link>
           ))}
-        <Separator orientation="vertical" className="h-full py-2" />
-        <DockIcon>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <ModeToggle />
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Theme</p>
-            </TooltipContent>
-          </Tooltip>
-        </DockIcon>
-      </Dock>
+        </div>
+
+        {/* "Hire me" Button on the Right */}
+        <div className="absolute right-8">
+          <InteractiveHoverButton     onClick={() => setIsOpen(true)} className="bg-neonGreen hover:bg-black text-sm text-black">
+            Hire Me
+          </InteractiveHoverButton>
+          
+          <HireMeDialog isOpen={isOpen} setIsOpen={setIsOpen}/>
+        </div>
+      </div>
     </div>
   );
 }

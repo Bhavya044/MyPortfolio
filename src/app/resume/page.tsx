@@ -1,19 +1,18 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import AboutPage from "@/components/about/About";
 import LoadingScreen from "@/components/ui/LoadingScreen";
-import Home from "@/components/home/Home";
+import ResumeSection from "@/components/resume/Resume";
 
 const Page = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false),3000); // 2-second delay
+    const timer = setTimeout(() => setLoading(false), 4000);
     return () => clearTimeout(timer);
   }, []);
 
-  return loading ? <LoadingScreen /> : <Home />;
+  return loading ? <LoadingScreen /> : <ResumeSection />;
 };
 
 export default Page;
