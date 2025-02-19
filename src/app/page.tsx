@@ -5,7 +5,7 @@ import { TypingAnimation } from "@/components/magicui/typing-animation";
 export default function Page() {
   return (
     <div>
-      <div className="grid grid-cols-2 gap-6 justify-between">
+      <div className="grid md:grid-cols-2 xs:grid-cols-1 gap-6 justify-between">
         <div className="flex flex-col gap-6">
           <div className="bg-neonGreen p-2 px-7 h-max w-max rounded-xl shadow-lg">
             <TypingAnimation
@@ -50,7 +50,7 @@ export default function Page() {
               src="/MyImage.png"
               width={250}
               height={100}
-              className="rounded-full border-4 border-gray-800"
+              className="rounded-full border-4 z-50 border-gray-800"
               alt="Picture of the author"
             />
           </div>
