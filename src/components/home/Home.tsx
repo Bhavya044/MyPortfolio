@@ -50,7 +50,7 @@ export default function Home() {
               src="/MyImage.png"
               width={250}
               height={100}
-              className="rounded-full border-4 z-50 border-gray-800"
+              className="rounded-full border-4 z-40 border-gray-800"
               alt="Picture of the author"
             />
           </div>
