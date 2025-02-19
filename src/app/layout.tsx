@@ -57,31 +57,35 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen relative bg-black text-green-400 font-sans antialiased flex justify-center items-center p-8",
+          "min-h-screen relative bg-black text-green-400 font-sans antialiased flex justify-center items-center p-4 md:p-8",
           fontCode.variable
         )}
       >
-          <Particles
-        className="absolute inset-0 z-0"
-        quantity={100}
-        ease={80}
-        color={"#ffffff"}
-        refresh
-      />
+        {/* 🌟 Particles Background */}
+        <Particles
+          className="absolute inset-0 z-0"
+          quantity={100}
+          ease={80}
+          color={"#ffffff"}
+          refresh
+        />
+
+        {/* ✨ Custom Cursor */}
         <AnimatedCursor innerSize={15} outerSize={10} color="168, 30, 88" />
 
-        <div className="w-full max-w-6xl rounded-lg border border-gray-700 shadow-2xl bg-gray-900 font-mono">
-          {/* Terminal Header */}
+        {/* 💻 Terminal Styled Container */}
+        <div className="w-full sm:max-w-3xl md:max-w-4xl lg:max-w-6xl rounded-lg border border-gray-700 shadow-2xl bg-gray-900 font-mono transition-all duration-300">
+          {/* 🖥️ Terminal Header */}
           <div className="flex items-center gap-2 p-3 bg-gray-800 rounded-t-lg">
             <span className="h-3 w-3 rounded-full bg-red-500"></span>
             <span className="h-3 w-3 rounded-full bg-yellow-500"></span>
             <span className="h-3 w-3 rounded-full bg-green-500"></span>
           </div>
 
-          {/* Navbar and Content */}
-          <div className="p-4">
+          {/* 🌐 Navbar & Dynamic Content */}
+          <div className="p-4 sm:p-6 md:p-8">
             <Navbar />
-            <div className="border-t border-gray-700 mt-4 pt-6 ">{children}</div>
+            <div className="border-t border-gray-700 mt-4 pt-6">{children}</div>
           </div>
         </div>
       </body>
