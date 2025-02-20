@@ -8,7 +8,7 @@ const Page = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 4000); // 2-second delay
+    const timer = setTimeout(() => setLoading(false), 3500); // 2-second delay
     return () => clearTimeout(timer);
   }, []);
 
