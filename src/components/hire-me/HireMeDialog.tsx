@@ -1,4 +1,3 @@
-// components/HireMeDialog.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -10,30 +9,33 @@ import toast, { Toaster } from "react-hot-toast";
 import { z } from "zod";
 
 // 🔥 Validation schema using zod
+type FormData = z.infer<typeof formSchema>;
+
 const formSchema = z.object({
   name: z.string().min(3, "⚡ Name must be at least 3 characters."),
   email: z.string().email("📩 Invalid email address."),
-  message: z.string().min(10, "💬 Message must be at least 10 characters."),
+  message: z.string().min(6, "💬 Message must be at least 10 characters."),
 });
 
-const HireMeDialog: React.FC<{ isOpen: boolean; setIsOpen: (val: boolean) => void }> = ({ isOpen, setIsOpen }) => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+const HireMeDialog: React.FC<{
+  isOpen: boolean;
+  setIsOpen: (val: boolean) => void;
+}> = ({ isOpen, setIsOpen }) => {
+  const [formData, setFormData] = useState<FormData>({ name: "", email: "", message: "" });
+  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [submitted, setSubmitted] = useState(false);
 
   // ⚡ Handle input change & validate
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const updatedFormData = { ...formData, [name]: value } as FormData;
+    setFormData(updatedFormData);
 
-    const result = formSchema.safeParse({ ...formData, [name]: value });
-    if (!result.success) {
-      const fieldError = result.error.formErrors.fieldErrors[name as keyof typeof result.error.formErrors.fieldErrors];
-      setErrors((prev) => ({ ...prev, [name]: fieldError ? fieldError[0] : "" }));
-    } else {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
-    }
-    
+    const result = formSchema.safeParse(updatedFormData);
+    setErrors((prev) => ({
+      ...prev,
+      [name]: result.success ? "" : (result.error.formErrors.fieldErrors[name as keyof FormData]?.[0] || ""),
+    }));
   };
 
   // ✉️ Handle form submission with validation
@@ -42,9 +44,9 @@ const HireMeDialog: React.FC<{ isOpen: boolean; setIsOpen: (val: boolean) => voi
     const result = formSchema.safeParse(formData);
 
     if (!result.success) {
-      const newErrors: any = {};
+      const newErrors: Partial<Record<keyof FormData, string>> = {};
       result.error.issues.forEach((issue) => {
-        newErrors[issue.path[0]] = issue.message;
+        newErrors[issue.path[0] as keyof FormData] = issue.message;
       });
       setErrors(newErrors);
       toast.error("🚫 Fix the highlighted errors.");
@@ -84,7 +86,7 @@ const HireMeDialog: React.FC<{ isOpen: boolean; setIsOpen: (val: boolean) => voi
   };
 
   return (
-    <div className="text-center z-50">
+    <div className="text-center z-50 font-mono bg-black text-gray-300">
       <Toaster position="top-right" reverseOrder={false} />
       <Dialog isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <motion.div
@@ -93,29 +95,23 @@ const HireMeDialog: React.FC<{ isOpen: boolean; setIsOpen: (val: boolean) => voi
           transition={{ duration: 0.3 }}
           className="bg-gray-900 rounded-lg p-8 shadow-lg border border-gray-700 w-full max-w-lg"
         >
-          <h2 className="text-3xl font-bold text-green-400 mb-6">Let&apos;s Work Together 🚀</h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <h2 className="text-3xl font-bold text-green-400 mb-6 border-b border-gray-700 pb-2">
+            $ Let&apos;s Work Together 🚀
+          </h2>
+          <form onSubmit={handleSubmit} className="space-y-5">
             {/* Name Field */}
             <div>
               <input
                 type="text"
                 name="name"
-                placeholder="Your Name"
+                placeholder="$ Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`w-full p-3 rounded-lg bg-gray-800 border ${
-                  errors.name ? "border-red-500" : "border-gray-700"
-                } text-green-400 focus:outline-none`}
+                className={`w-full p-3 rounded bg-black border transition-all duration-300 ${
+                  errors.name ? "border-red-500" : "border-gray-700 focus:border-green-400"
+                } text-green-400 focus:outline-none focus:ring-1 focus:ring-green-500`}
               />
-              {errors.name && (
-                <motion.p
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-red-500 text-sm mt-1"
-                >
-                  {errors.name}
-                </motion.p>
-              )}
+              {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
             </div>
 
             {/* Email Field */}
@@ -123,51 +119,35 @@ const HireMeDialog: React.FC<{ isOpen: boolean; setIsOpen: (val: boolean) => voi
               <input
                 type="email"
                 name="email"
-                placeholder="Your Email"
+                placeholder="$ Your Email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full p-3 rounded-lg bg-gray-800 border ${
-                  errors.email ? "border-red-500" : "border-gray-700"
-                } text-green-400 focus:outline-none`}
+                className={`w-full p-3 rounded bg-black border transition-all duration-300 ${
+                  errors.email ? "border-red-500" : "border-gray-700 focus:border-blue-400"
+                } text-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500`}
               />
-              {errors.email && (
-                <motion.p
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-red-500 text-sm mt-1"
-                >
-                  {errors.email}
-                </motion.p>
-              )}
+              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
             </div>
 
             {/* Message Field */}
             <div>
               <textarea
                 name="message"
-                placeholder="Your Message"
+                placeholder="$ Your Message"
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className={`w-full p-3 rounded-lg bg-gray-800 border ${
-                  errors.message ? "border-red-500" : "border-gray-700"
-                } text-green-400 focus:outline-none`}
+                className={`w-full p-3 rounded bg-black border transition-all duration-300 ${
+                  errors.message ? "border-red-500" : "border-gray-700 focus:border-purple-400"
+                } text-purple-400 focus:outline-none focus:ring-1 focus:ring-purple-500`}
               />
-              {errors.message && (
-                <motion.p
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-red-500 text-sm mt-1"
-                >
-                  {errors.message}
-                </motion.p>
-              )}
+              {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
             </div>
 
             <Button
               type="submit"
               disabled={submitted}
-              className="w-full bg-neonGreen hover:bg-black text-black hover:text-neonGreen flex items-center justify-center gap-2"
+              className="w-full bg-black border border-green-500 text-green-400 hover:bg-green-500 hover:text-black font-semibold py-3 rounded-lg shadow-md flex items-center justify-center gap-2 transform hover:scale-105 transition-transform duration-300"
             >
               <FaPaperPlane /> {submitted ? "Sending..." : "Send Message"}
             </Button>
