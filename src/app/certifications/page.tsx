@@ -6,14 +6,14 @@ import ExperienceSection from "@/components/experience/Experience";
 import CertificationsPage from "@/components/certificates/Certificates";
 
 const Page = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 4000); // 2-second delay
+    const timer = setTimeout(() => setLoading(false), 5000); // 2-second delay
     return () => clearTimeout(timer);
   }, []);
 
-  return loading ? <LoadingScreen /> : <CertificationsPage />;
+  return loading ? <LoadingScreen tab="certifications"/> : <CertificationsPage />;
 };
 
 export default Page;

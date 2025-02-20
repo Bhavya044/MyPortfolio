@@ -8,11 +8,11 @@ const Page = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 4000);
+    const timer = setTimeout(() => setLoading(false), 5000);
     return () => clearTimeout(timer);
   }, []);
 
-  return loading ? <LoadingScreen /> : <ResumeSection />;
+  return loading ? <LoadingScreen tab="resume" /> : <ResumeSection />;
 };
 
 export default Page;

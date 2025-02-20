@@ -8,11 +8,11 @@ const Page = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 4000); // 2-second delay
+    const timer = setTimeout(() => setLoading(false), 5000); // 2-second delay
     return () => clearTimeout(timer);
   }, []);
 
-  return loading ? <LoadingScreen /> : <ExperienceSection />;
+  return loading ? <LoadingScreen tab="experience" /> : <ExperienceSection />;
 };
 
 export default Page;

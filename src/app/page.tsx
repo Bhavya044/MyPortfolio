@@ -9,11 +9,11 @@ const Page = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false),3000); // 2-second delay
+    const timer = setTimeout(() => setLoading(false),5000); // 2-second delay
     return () => clearTimeout(timer);
   }, []);
 
-  return loading ? <LoadingScreen /> : <Home />;
+  return loading ? <LoadingScreen tab="home" /> : <Home />;
 };
 
 export default Page;

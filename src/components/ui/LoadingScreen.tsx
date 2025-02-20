@@ -3,12 +3,8 @@
 
 import {
   AnimatedSpan,
-  Terminal,
   TypingAnimation,
 } from "@/components/magicui/terminal";
-import AnimatedCursor from "react-animated-cursor";
-import { Particles } from "@/components/magicui/particles";
-import { cn } from "@/lib/utils";
 import { Fira_Code as FontCode } from "next/font/google";
 
 const fontCode = FontCode({
@@ -17,61 +13,77 @@ const fontCode = FontCode({
   weight: ["400", "500", "600"],
 });
 
-export default function LoadingScreen() {
+type LoadingScreenProps = {
+  tab: "home" | "about" | "experience" | "certifications" | "projects" | "resume";
+};
+
+// Dynamic loading messages based on tab
+const tabMessages: Record<string, string[]> = {
+  home: [
+    "✔ Booting up creativity engine... 🎨",
+    "✔ Setting up the landing page vibes... 🎧",
+    "✔ Optimizing intro animations... ✨",
+    "✔ Finalizing welcome messages... 🌟",
+  ],
+  about: [
+    "✔ Gathering interesting facts... 💡",
+    "✔ Assembling skill orbit animations... 🪐",
+    "✔ Highlighting career journey... 📜",
+    "✔ Loading personality quirks... 😄",
+  ],
+  experience: [
+    "✔ Fetching work experiences... 🏢",
+    "✔ Optimizing professional milestones... 🏆",
+    "✔ Highlighting growth stories... 🌱",
+    "✔ Adding impactful achievements... 💪",
+  ],
+  certifications: [
+    "✔ Verifying certifications... 📜",
+    "✔ Polishing achievements... 🏅",
+    "✔ Unlocking new skill levels... 🎯",
+    "✔ Displaying learning journeys... 📚",
+  ],
+  projects: [
+    "✔ Loading awesome code snippets... 💻",
+    "✔ Deploying cool side projects... 🌟",
+    "✔ Injecting React ⚛️ and TypeScript 📝 magic... ✨",
+    "✔ Compiling dreams into code... 🌌",
+  ],
+  resume: [
+    "✔ Fetching resume from Google Drive... 📄",
+    "✔ Optimizing skills showcase... 🛠️",
+    "✔ Aligning work history... 📝",
+    "✔ Formatting experiences... 🎨",
+  ],
+};
+
+export default function LoadingScreen({ tab }: LoadingScreenProps) {
   return (
-  
-     <div className="md:mx-20 mx-6 text-xl">
-            <TypingAnimation>&gt; Initializing Bhavya&apos;s Portfolio 🚀</TypingAnimation>
+    <div className="md:mx-20 mx-6 text-xl">
+      <TypingAnimation>{`> Initializing ${tab} tab 🚀`}</TypingAnimation>
 
-            <AnimatedSpan delay={1500} className="text-green-500">
-              <span>✔ Booting up creativity engine... 🎨</span>
-            </AnimatedSpan>
+      {/* Dynamic sentences based on tab */}
+      {tabMessages[tab]?.map((message, index) => (
+        <AnimatedSpan
+          key={index}
+          delay={1500 + index * 400}
+          className="text-green-500"
+        >
+          {message}
+        </AnimatedSpan>
+      ))}
 
-            <AnimatedSpan delay={2000} className="text-green-500">
-              <span>✔ Loading awesome code snippets... 💻</span>
-            </AnimatedSpan>
+      {/* Final universal success message */}
+      <TypingAnimation delay={1500 + tabMessages[tab].length * 1000} className="text-yellow-400">
+        {`🎉 Success! ${tab.charAt(0).toUpperCase() + tab.slice(1)} tab fully operational and looking sharp. 💯`}
+      </TypingAnimation>
 
-            <AnimatedSpan delay={2500} className="text-green-500">
-              <span>✔ Optimizing caffeine levels... ☕</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={3000} className="text-green-500">
-              <span>✔ Debugging life decisions... 🤔</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={3500} className="text-green-500">
-              <span>✔ Fetching next big idea... 💡</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={4000} className="text-green-500">
-              <span>✔ Compiling dreams into code... 🌌</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={4500} className="text-green-500">
-              <span>✔ Assembling full-stack awesomeness... 🛠️</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={5000} className="text-green-500">
-              <span>✔ Injecting React ⚛️ and TypeScript 📝 magic... ✨</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={5500} className="text-green-500">
-              <span>✔ Deploying cool side projects... 🌟</span>
-            </AnimatedSpan>
-
-            <AnimatedSpan delay={6000} className="text-blue-500">
-              <span>ℹ Adding final touches... ✍️</span>
-              <span className="pl-2">- Perfecting animations 💫</span>
-            </AnimatedSpan>
-
-            <TypingAnimation delay={6500} className="text-yellow-400">
-              🎉 Success! Portfolio fully operational and looking sharp. 💯
-            </TypingAnimation>
-
-            <TypingAnimation delay={7000} className="text-pink-400">
-              🚀 Let’s build something awesome together! ✨
-            </TypingAnimation>
-        </div>
-
+      <TypingAnimation
+        delay={2000 + tabMessages[tab].length * 1000}
+        className="text-pink-400"
+      >
+        {"🚀 Let’s build something awesome together! ✨"}
+      </TypingAnimation>
+    </div>
   );
 }

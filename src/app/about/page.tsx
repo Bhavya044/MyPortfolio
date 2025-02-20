@@ -12,7 +12,7 @@ const Page = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  return loading ? <LoadingScreen /> : <AboutPage />;
+  return loading ? <LoadingScreen tab="about"/> : <AboutPage />;
 };
 
 export default Page;

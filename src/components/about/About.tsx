@@ -1,7 +1,6 @@
 "use client";
 
 import { OrbitingCircles } from "@/components/magicui/orbiting-circles";
-import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { motion } from "framer-motion";
 import { SiLeetcode } from "react-icons/si";
 import Link from "next/link";
