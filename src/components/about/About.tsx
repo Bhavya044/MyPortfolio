@@ -224,7 +224,7 @@ export default function AboutPage() {
                   {edu.degree}
                 </h3>
                 <p className="text-gray-400">{edu.institution}</p>
-                <p className="text-sm text-gray-500 italic">{edu.duration}</p>
+                {/* <p className="text-sm text-gray-500 italic">{edu.duration}</p> */}
                 <p className="text-base text-gray-300 mt-2">
                   {edu.description}
                 </p>
