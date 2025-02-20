@@ -235,7 +235,7 @@ export default function AboutPage() {
       </div>
       <div className="flex flex-wrap gap-6 text-xl mt-6 justify-center mt-3">
             <Link
-              href="https://github.com/yourusername"
+              href="https://github.com/Bhavya044"
               target="_blank"
               aria-label="GitHub"
             >
@@ -250,7 +250,7 @@ export default function AboutPage() {
               </div>
             </Link>
             <Link
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/bhavya-suri044/"
               target="_blank"
               aria-label="LinkedIn"
             >
@@ -265,7 +265,7 @@ export default function AboutPage() {
               </div>
             </Link>
             <Link
-              href="https://auth.geeksforgeeks.org/user/yourusername"
+              href="https://www.geeksforgeeks.org/user/bhavya0381/"
               target="_blank"
               aria-label="GeeksforGeeks"
             >
@@ -276,7 +276,7 @@ export default function AboutPage() {
                 </span>
               </div>
             </Link>
-            <Link
+            {/* <Link
               href="https://leetcode.com/yourusername"
               target="_blank"
               aria-label="LeetCode"
@@ -290,7 +290,7 @@ export default function AboutPage() {
                   LeetCode
                 </span>
               </div>
-            </Link>
+            </Link> */}
           </div>
     </div>
   );
