@@ -37,7 +37,7 @@ export default function Home() {
           <div className="text-base leading-relaxed text-gray-300">
             with experience in crafting{" "}
             <span className="text-orange-400">scalable web apps</span> using{" "}
-            <span className="text-cyan-400">React</span>,{" "}
+            <span className="text-cyan-400">React / Next</span>,{" "}
             <span className="text-purple-400">TypeScript</span>, and{" "}
             <span className="text-pink-400">Express.js</span>.
             <br />
