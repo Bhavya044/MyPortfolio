@@ -5,7 +5,7 @@ import LoadingScreen from "@/components/ui/LoadingScreen";
 import Projects from "@/components/projects/Projects";
 
 const Page = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 4000); // 2-second delay

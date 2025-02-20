@@ -2,7 +2,7 @@
 
 import { OrbitingCircles } from "@/components/magicui/orbiting-circles";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
-
+import { motion } from "framer-motion";
 import { SiLeetcode } from "react-icons/si";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
@@ -106,9 +106,14 @@ export default function AboutPage() {
     <div className="min-h-screen py-2 px-4 lg:px-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div className="flex flex-col gap-6">
-          <h1 className="text-4xl lg:text-4xl font-bold tracking-wide text-neonGreen">
-            $ about-me
-          </h1>
+        <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-3xl sm:text-4xl text-neonGreen"
+          >
+         $ about me
+          </motion.h2>
           <p className="leading-relaxed text-base">
             <span className="text-yellow-400">&gt; Hi, I am</span>{" "}
             <span className="text-cyan-400">Bhavya</span> <br />

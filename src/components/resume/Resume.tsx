@@ -13,9 +13,14 @@ const ResumeSection = () => {
   return (
     <div className="min-h-screen flex flex-col items-center px-4 sm:px-6 lg:px-16 w-full py-8">
       <div className="flex flex-col md:flex-row items-center md:justify-between w-full gap-4 mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-wide text-neonGreen text-center md:text-left">
-          $ my Resume
-        </h1>
+      <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-3xl sm:text-4xl text-neonGreen"
+          >
+         $ my resume
+          </motion.h2>
         <AnimatedSubscribeButton className="w-full md:w-36 bg-black">
           <span onClick={() => window.open(downloadLink, "_blank")} className="group inline-flex items-center">
             Download
@@ -28,13 +33,13 @@ const ResumeSection = () => {
         </AnimatedSubscribeButton>
       </div>
 
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
+      <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
         className="w-full flex flex-col items-center gap-6"
       >
-        <div className="relative w-full max-w-4xl h-[60vh] md:h-[80vh] border border-gray-700 rounded-lg overflow-hidden shadow-lg">
+        <div className="relative w-full max-w-4xl h-[60vh] md:h-[100vh] border border-gray-700 rounded-lg overflow-hidden shadow-lg">
           <iframe
             src={resumeLink}
             className="w-full h-full"
@@ -42,7 +47,7 @@ const ResumeSection = () => {
             title="Bhavya's Resume"
           />
         </div>
-      </motion.section>
+      </motion.div>
     </div>
   );
 };
