@@ -14,11 +14,12 @@ export default async function handler(req, res) {
 
     try {
       await transporter.sendMail({
-        from: email,
+        from: `"${name}" <${process.env.EMAIL_USER}>`, // Shows user's name but uses your email
         to: process.env.EMAIL_USER,
-        subject: `New message from ${name} - ${email}`,
+        replyTo: email, // Allows you to reply directly to the user
+        subject: `New message from ${name}`,
         text: message,
-      });
+      });      
       res.status(200).json({ success: true, message: "Message sent successfully!" });
     } catch (error) {
       res.status(500).json({ success: false, message: "Something went wrong.", error });
