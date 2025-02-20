@@ -1,8 +1,11 @@
 "use client";
+import { useEffect } from "react";
 import Image from "next/image";
 import { TypingAnimation } from "@/components/magicui/typing-animation";
 
 export default function Home() {
+  
+
   return (
     <div>
       <div className="grid md:grid-cols-2 xs:grid-cols-1 gap-6 justify-between">
@@ -12,14 +15,24 @@ export default function Home() {
               className="text-black text-lg font-semibold"
               startOnView
               delay={5}
+              onStart={() => {
+                const audio = new Audio("/typing-sound.mp3");
+                audio.currentTime = 0;
+                audio.play().catch((error) => {
+                  console.error("Audio playback failed:", error);
+                });
+              }}
+              onEnd={() => {
+                const audio = new Audio("/typing-sound.mp3");
+                audio.pause();
+                audio.currentTime = 0;
+              }}
             >
               Hi there! I am Bhavya! 👋
             </TypingAnimation>
           </div>
 
-          <div className="text-4xl bg-clip-text">
-            A Full Stack Developer
-          </div>
+          <div className="text-4xl bg-clip-text">A Full Stack Developer</div>
 
           <div className="text-base leading-relaxed text-gray-300">
             with experience in crafting{" "}
@@ -29,9 +42,7 @@ export default function Home() {
             <span className="text-pink-400">Express.js</span>.
             <br />
             In my free time, you will find me{" "}
-            <span className="text-yellow-400">
-              exploring the latest tech trends
-            </span>
+            <span className="text-yellow-400">exploring the latest tech trends</span>
             ,{" "}
             <span className="text-emerald-400">tinkering with side projects</span>
             , or binge-watching{" "}
@@ -46,14 +57,14 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center items-center">
-            <Image
-              src="/MyImage.png"
-              width={250}
-              height={100}
-              className="rounded-full border-4 z-40 border-gray-800"
-              alt="Picture of the author"
-            />
-          </div>
+          <Image
+            src="/MyImage.png"
+            width={250}
+            height={100}
+            className="rounded-full border-4 z-40 border-gray-800"
+            alt="Picture of the author"
+          />
+        </div>
       </div>
     </div>
   );

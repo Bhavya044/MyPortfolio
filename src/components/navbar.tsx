@@ -42,7 +42,7 @@ export default function Navbar() {
         {/* 🌟 Hamburger Icon for Mobile */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-white text-2xl focus:outline-none"
+          className="lg:hidden text-white text-2xl focus:outline-none"
         >
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
@@ -95,7 +95,7 @@ export default function Navbar() {
         )}
 
         {/* 💻 Tabs for Larger Screens */}
-        <div className="hidden md:flex gap-4 border border-gray-500 rounded-3xl p-4 px-8 bg-transparent">
+        <div className="hidden lg:flex gap-4 border border-gray-500 rounded-3xl p-4 px-8 bg-transparent">
           {tabs.map((tab, i) => (
             <Link
               href={tab.to}

@@ -11,6 +11,8 @@ interface TypingAnimationProps extends MotionProps {
   delay?: number;
   as?: React.ElementType;
   startOnView?: boolean;
+  onStart?: () => void;
+  onEnd?: () => void;
 }
 
 export function TypingAnimation({
@@ -20,6 +22,8 @@ export function TypingAnimation({
   delay = 0,
   as: Component = "div",
   startOnView = false,
+  onStart,
+  onEnd,
   ...props
 }: TypingAnimationProps) {
   const MotionComponent = motion.create(Component, {
@@ -29,11 +33,39 @@ export function TypingAnimation({
   const [displayedText, setDisplayedText] = useState<string>("");
   const [started, setStarted] = useState(false);
   const elementRef = useRef<HTMLElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio("/typing-sound.mp3");
+    audioRef.current.loop = true;
+    audioRef.current.muted = true; // Mute initially to bypass autoplay restrictions
+    audioRef.current.load(); // Preload the audio
+  }, []);
+
+  const playAudio = async () => {
+    if (audioRef.current) {
+      audioRef.current.muted = false; // Unmute when playback starts
+      try {
+        await audioRef.current.play();
+      } catch (error) {
+        console.error("Audio playback failed:", error);
+      }
+    }
+  };
+
+  const stopAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
 
   useEffect(() => {
     if (!startOnView) {
       const startTimeout = setTimeout(() => {
         setStarted(true);
+        if (onStart) onStart();
+        playAudio();
       }, delay);
       return () => clearTimeout(startTimeout);
     }
@@ -43,6 +75,8 @@ export function TypingAnimation({
         if (entry.isIntersecting) {
           setTimeout(() => {
             setStarted(true);
+            if (onStart) onStart();
+            playAudio();
           }, delay);
           observer.disconnect();
         }
@@ -55,26 +89,31 @@ export function TypingAnimation({
     }
 
     return () => observer.disconnect();
-  }, [delay, startOnView]);
+  }, [delay, startOnView, onStart]);
 
   useEffect(() => {
     if (!started) return;
 
     let i = 0;
+    playAudio();
+
     const typingEffect = setInterval(() => {
       if (i < children.length) {
         setDisplayedText(children.substring(0, i + 1));
         i++;
       } else {
         clearInterval(typingEffect);
+        stopAudio();
+        if (onEnd) onEnd();
       }
     }, duration);
 
     return () => {
       clearInterval(typingEffect);
+      stopAudio();
     };
-  }, [children, duration, started]);
-console.log("HERE")
+  }, [children, duration, started, onEnd]);
+
   return (
     <MotionComponent
       ref={elementRef}
