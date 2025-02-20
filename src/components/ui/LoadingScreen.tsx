@@ -20,7 +20,7 @@ const fontCode = FontCode({
 export default function LoadingScreen() {
   return (
   
-     <div className="mx-20 text-xl">
+     <div className="md:mx-20 mx-6 text-xl">
             <TypingAnimation>&gt; Initializing Bhavya&apos;s Portfolio 🚀</TypingAnimation>
 
             <AnimatedSpan delay={1500} className="text-green-500">

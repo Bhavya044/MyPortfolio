@@ -70,8 +70,10 @@ export default function RootLayout({
           refresh
         />
 
-        {/* ✨ Custom Cursor */}
-        <AnimatedCursor innerSize={15} outerSize={10} color="168, 30, 88" />
+        {/* ✨ Custom Cursor (hidden on mobile) */}
+        <div className="hidden md:block">
+          <AnimatedCursor innerSize={15} outerSize={10} color="168, 30, 88" />
+        </div>
 
         {/* 💻 Terminal Styled Container */}
         <div className="w-full sm:max-w-3xl md:max-w-4xl lg:max-w-6xl rounded-lg border border-gray-700 shadow-2xl bg-gray-900 font-mono transition-all duration-300">
