@@ -5,6 +5,7 @@ import { Fira_Code as FontCode } from "next/font/google";
 import AnimatedCursor from "react-animated-cursor";
 import { Particles } from "@/components/magicui/particles";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import "./globals.css";
 import Navbar from "@/components/navbar";
@@ -71,6 +72,7 @@ export default function RootLayout({
           refresh
         />
         <Analytics/>
+        <SpeedInsights/>
 
         {/* ✨ Custom Cursor (hidden on mobile) */}
         <div className="hidden md:block">
