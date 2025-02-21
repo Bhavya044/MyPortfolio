@@ -35,37 +35,37 @@ export function TypingAnimation({
   const elementRef = useRef<HTMLElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  useEffect(() => {
-    audioRef.current = new Audio("/typing-sound.mp3");
-    audioRef.current.loop = true;
-    audioRef.current.muted = true; // Mute initially to bypass autoplay restrictions
-    audioRef.current.load(); // Preload the audio
-  }, []);
+  // useEffect(() => {
+  //   audioRef.current = new Audio("/typing-sound.mp3");
+  //   audioRef.current.loop = true;
+  //   audioRef.current.muted = true; // Mute initially to bypass autoplay restrictions
+  //   audioRef.current.load(); // Preload the audio
+  // }, []);
 
-  const playAudio = async () => {
-    if (audioRef.current) {
-      audioRef.current.muted = false; // Unmute when playback starts
-      try {
-        await audioRef.current.play();
-      } catch (error) {
-        console.error("Audio playback failed:", error);
-      }
-    }
-  };
+  // const playAudio = async () => {
+  //   if (audioRef.current) {
+  //     audioRef.current.muted = false; // Unmute when playback starts
+  //     try {
+  //       await audioRef.current.play();
+  //     } catch (error) {
+  //       console.error("Audio playback failed:", error);
+  //     }
+  //   }
+  // };
 
-  const stopAudio = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    }
-  };
+  // const stopAudio = () => {
+  //   if (audioRef.current) {
+  //     audioRef.current.pause();
+  //     audioRef.current.currentTime = 0;
+  //   }
+  // };
 
   useEffect(() => {
     if (!startOnView) {
       const startTimeout = setTimeout(() => {
         setStarted(true);
         if (onStart) onStart();
-        playAudio();
+        // playAudio();
       }, delay);
       return () => clearTimeout(startTimeout);
     }
@@ -76,7 +76,7 @@ export function TypingAnimation({
           setTimeout(() => {
             setStarted(true);
             if (onStart) onStart();
-            playAudio();
+            // playAudio();
           }, delay);
           observer.disconnect();
         }
@@ -95,7 +95,7 @@ export function TypingAnimation({
     if (!started) return;
 
     let i = 0;
-    playAudio();
+    // playAudio();
 
     const typingEffect = setInterval(() => {
       if (i < children.length) {
@@ -103,14 +103,14 @@ export function TypingAnimation({
         i++;
       } else {
         clearInterval(typingEffect);
-        stopAudio();
+        // stopAudio();
         if (onEnd) onEnd();
       }
     }, duration);
 
     return () => {
       clearInterval(typingEffect);
-      stopAudio();
+      // stopAudio();
     };
   }, [children, duration, started, onEnd]);
 

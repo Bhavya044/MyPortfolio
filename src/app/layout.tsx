@@ -9,6 +9,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import FloatingSocialCard from "@/components/ui/FloatingSocialCard";
 
 const fontCode = FontCode({
   subsets: ["latin"],
@@ -73,6 +74,7 @@ export default function RootLayout({
         />
         <Analytics/>
         <SpeedInsights/>
+        <FloatingSocialCard/>
 
         {/* ✨ Custom Cursor (hidden on mobile) */}
         <div className="hidden md:block">

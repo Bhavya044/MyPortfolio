@@ -15,18 +15,18 @@ export default function Home() {
               className="text-black text-lg font-semibold"
               startOnView
               delay={5}
-              onStart={() => {
-                const audio = new Audio("/typing-sound.mp3");
-                audio.currentTime = 0;
-                audio.play().catch((error) => {
-                  console.error("Audio playback failed:", error);
-                });
-              }}
-              onEnd={() => {
-                const audio = new Audio("/typing-sound.mp3");
-                audio.pause();
-                audio.currentTime = 0;
-              }}
+              // onStart={() => {
+              //   const audio = new Audio("/typing-sound.mp3");
+              //   audio.currentTime = 0;
+              //   audio.play().catch((error) => {
+              //     console.error("Audio playback failed:", error);
+              //   });
+              // }}
+              // onEnd={() => {
+              //   const audio = new Audio("/typing-sound.mp3");
+              //   audio.pause();
+              //   audio.currentTime = 0;
+              // }}
             >
               Hi there! I am Bhavya! 👋
             </TypingAnimation>
