@@ -13,7 +13,7 @@ const projects = [
   {
     title: "Pokémon Explorer",
     description:
-      "A MERN stack web app that allows users to explore Pokémon data fetched from the PokeAPI. Features include search, pagination, and a Pokémon-themed UI using Chakra UI. Optimized for performance and usability.",
+      "A FullStack stack web app that allows users to explore Pokémon data fetched from the PokeAPI. Features include search, pagination, and a Pokémon-themed UI using Tailwind CSS. Optimized for performance and usability.",
     techStack: ["TypeScript", "TailwincCSS", "Nextdotjs"],
     image: "/pokeexplore.png",
     video: "",
