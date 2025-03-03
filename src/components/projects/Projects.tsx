@@ -11,6 +11,15 @@ import { FaGithub } from "react-icons/fa";
 
 const projects = [
   {
+    title: "Pokémon Explorer",
+    description:
+      "A MERN stack web app that allows users to explore Pokémon data fetched from the PokeAPI. Features include search, pagination, and a Pokémon-themed UI using Chakra UI. Optimized for performance and usability.",
+    techStack: ["TypeScript", "TailwincCSS", "Nextdotjs"],
+    image: "/pokeexplore.png",
+    video: "",
+    link: "https://github.com/Bhavya044/pokemon-explore",
+  },
+  {
     title: "AI Recipe Generator",
     description:
       "An AI-powered web application that suggests personalized recipes based on the ingredients you have on hand. It uses machine learning models to simplify meal planning and make cooking more enjoyable with real-time, tailored recipe suggestions.",
