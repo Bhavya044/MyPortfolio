@@ -14,7 +14,7 @@ const projects = [
     title: "Pokémon Explorer",
     description:
       "A FullStack stack web app that allows users to explore Pokémon data fetched from the PokeAPI. Features include search, pagination, and a Pokémon-themed UI using Tailwind CSS. Optimized for performance and usability.",
-    techStack: ["TypeScript", "TailwincCSS", "Nextdotjs"],
+    techStack: ["TypeScript", "TailwindCSS", "Nextdotjs"],
     image: "/pokeexplore.png",
     video: "",
     link: "https://github.com/Bhavya044/pokemon-explore",
