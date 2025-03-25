@@ -4,7 +4,14 @@ import { usePathname } from "next/navigation";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaHome, FaUser, FaProjectDiagram, FaFileAlt, FaBars, FaTimes } from "react-icons/fa";
+import {
+  FaHome,
+  FaUser,
+  FaProjectDiagram,
+  FaFileAlt,
+  FaBars,
+  FaTimes,
+} from "react-icons/fa";
 import { CgWorkAlt } from "react-icons/cg";
 import HireMeDialog from "./hire-me/HireMeDialog";
 import { PiCertificateFill } from "react-icons/pi";
@@ -21,9 +28,21 @@ export default function Navbar() {
   const tabs: ITabs[] = [
     { name: "Home", to: "/", icon: <FaHome className="text-lg" /> },
     { name: "About", to: "/about", icon: <FaUser className="text-lg" /> },
-    { name: "Experience", to: "/experience", icon: <CgWorkAlt className="text-lg" /> },
-    { name: "Certifications", to: "/certifications", icon: <PiCertificateFill className="text-lg" /> },
-    { name: "Projects", to: "/projects", icon: <FaProjectDiagram className="text-lg" /> },
+    {
+      name: "Experience",
+      to: "/experience",
+      icon: <CgWorkAlt className="text-lg" />,
+    },
+    {
+      name: "Certifications",
+      to: "/certifications",
+      icon: <PiCertificateFill className="text-lg" />,
+    },
+    {
+      name: "Projects",
+      to: "/projects",
+      icon: <FaProjectDiagram className="text-lg" />,
+    },
     { name: "Resume", to: "/resume", icon: <FaFileAlt className="text-lg" /> },
   ];
 
@@ -119,7 +138,7 @@ export default function Navbar() {
         <div className="absolute right-2">
           <InteractiveHoverButton
             onClick={() => setIsOpen(true)}
-            className="bg-neonGreen hover:bg-black text-xs md:text-base text-black"
+            className="bg-neonGreen hover:bg-black text-xs md:text-sm text-black hover:text-neonGreen hover:shadow-neonGreen glow"
           >
             Hire Me
           </InteractiveHoverButton>

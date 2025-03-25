@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 import { Fira_Code as FontCode } from "next/font/google";
 import AnimatedCursor from "react-animated-cursor";
 import { Particles } from "@/components/magicui/particles";
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 import Navbar from "@/components/navbar";
@@ -72,9 +72,9 @@ export default function RootLayout({
           color={"#ffffff"}
           refresh
         />
-        <Analytics/>
-        <SpeedInsights/>
-        <FloatingSocialCard/>
+        <Analytics />
+        <SpeedInsights />
+        <FloatingSocialCard />
 
         {/* ✨ Custom Cursor (hidden on mobile) */}
         <div className="hidden md:block">
@@ -98,7 +98,7 @@ export default function RootLayout({
 
           {/* 📜 Small Footer */}
           <footer className="text-center text-gray-500 text-xs py-2 border-t border-gray-700">
-            © {new Date().getFullYear()} {DATA.name}. 
+            © {new Date().getFullYear()} {DATA.name}.
           </footer>
         </div>
       </body>
