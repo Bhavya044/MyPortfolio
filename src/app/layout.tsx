@@ -78,11 +78,19 @@ export default function RootLayout({
 
         {/* ✨ Custom Cursor (hidden on mobile) */}
         <div className="hidden md:block">
-          <AnimatedCursor innerSize={15} outerSize={10} color="168, 30, 88" />
+          <AnimatedCursor
+            innerSize={12}
+            outerSize={35}
+            color="255, 20, 147" // 💖 Pink color
+            outerAlpha={0.5}
+            innerScale={1.2}
+            outerScale={1.5}
+            showSystemCursor={false} // 🚀 Hide the default system cursor
+          />
         </div>
 
         {/* 💻 Terminal Styled Container */}
-        <div className="w-full sm:max-w-3xl md:max-w-4xl lg:max-w-6xl rounded-lg border border-gray-700 shadow-2xl bg-gray-900 font-mono transition-all duration-300">
+        <div className="w-full sm:max-w-3xl md:max-w-4xl lg:max-w-6xl rounded-lg border border-gray-700 shadow-[0_0_5px_#0ff,0_0_10px_#0ff] bg-gray-900 font-mono transition-all duration-300">
           {/* 🖥️ Terminal Header */}
           <div className="flex items-center gap-2 p-3 bg-gray-800 rounded-t-lg">
             <span className="h-3 w-3 rounded-full bg-red-500"></span>

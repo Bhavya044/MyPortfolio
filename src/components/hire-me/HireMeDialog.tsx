@@ -21,12 +21,20 @@ const HireMeDialog: React.FC<{
   isOpen: boolean;
   setIsOpen: (val: boolean) => void;
 }> = ({ isOpen, setIsOpen }) => {
-  const [formData, setFormData] = useState<FormData>({ name: "", email: "", message: "" });
-  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>(
+    {}
+  );
   const [submitted, setSubmitted] = useState(false);
 
   // ⚡ Handle input change & validate
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     const updatedFormData = { ...formData, [name]: value } as FormData;
     setFormData(updatedFormData);
@@ -34,7 +42,10 @@ const HireMeDialog: React.FC<{
     const result = formSchema.safeParse(updatedFormData);
     setErrors((prev) => ({
       ...prev,
-      [name]: result.success ? "" : (result.error.formErrors.fieldErrors[name as keyof FormData]?.[0] || ""),
+      [name]: result.success
+        ? ""
+        : result.error.formErrors.fieldErrors[name as keyof FormData]?.[0] ||
+          "",
     }));
   };
 
@@ -96,7 +107,7 @@ const HireMeDialog: React.FC<{
           className="bg-gray-900 rounded-lg p-8 shadow-lg border border-gray-700 w-full max-w-lg"
         >
           <h2 className="text-3xl font-bold text-green-400 mb-6 border-b border-gray-700 pb-2">
-            $ Let&apos;s Work Together 🚀
+            $ Let&apos;s Work Together
           </h2>
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Name Field */}
@@ -108,10 +119,14 @@ const HireMeDialog: React.FC<{
                 value={formData.name}
                 onChange={handleChange}
                 className={`w-full p-3 rounded bg-black border transition-all duration-300 ${
-                  errors.name ? "border-red-500" : "border-gray-700 focus:border-green-400"
+                  errors.name
+                    ? "border-red-500"
+                    : "border-gray-700 focus:border-green-400"
                 } text-green-400 focus:outline-none focus:ring-1 focus:ring-green-500`}
               />
-              {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+              {errors.name && (
+                <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+              )}
             </div>
 
             {/* Email Field */}
@@ -123,10 +138,14 @@ const HireMeDialog: React.FC<{
                 value={formData.email}
                 onChange={handleChange}
                 className={`w-full p-3 rounded bg-black border transition-all duration-300 ${
-                  errors.email ? "border-red-500" : "border-gray-700 focus:border-blue-400"
+                  errors.email
+                    ? "border-red-500"
+                    : "border-gray-700 focus:border-blue-400"
                 } text-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500`}
               />
-              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+              )}
             </div>
 
             {/* Message Field */}
@@ -138,10 +157,14 @@ const HireMeDialog: React.FC<{
                 onChange={handleChange}
                 rows={4}
                 className={`w-full p-3 rounded bg-black border transition-all duration-300 ${
-                  errors.message ? "border-red-500" : "border-gray-700 focus:border-purple-400"
+                  errors.message
+                    ? "border-red-500"
+                    : "border-gray-700 focus:border-purple-400"
                 } text-purple-400 focus:outline-none focus:ring-1 focus:ring-purple-500`}
               />
-              {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
+              {errors.message && (
+                <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+              )}
             </div>
 
             <Button
