@@ -41,48 +41,51 @@ const experiences = [
 ];
 
 export default function ExperienceSection() {
-    return (
-        <div className="text-white min-h-screen py-4 px-4 sm:px-4 lg:px-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-neonGreen">
-            $ experience
-          </h2>
-          <div className="relative border-l-2 border-green-400 ml-2 sm:ml-4">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                className="mb-8 sm:mb-10 ml-6 sm:ml-8"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                <div className="absolute w-6 h-6 sm:w-8 sm:h-8 bg-transparent rounded-full -left-3 sm:-left-4 flex items-center justify-center shadow-lg">
-                  <Image
-                    src={exp.logo}
-                    width={200}
-                    height={80}
-                    className="rounded-full border-4 z-50 border-gray-800"
-                    alt="Company Logo"
-                  />
-                </div>
-                <div className="bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-neonGreen">
-                    {exp.role}
-                  </h3>
-                  <p className="text-base sm:text-lg text-gray-400">{exp.company}</p>
-                  <p className="text-sm sm:text-base text-gray-500 italic">{exp.duration}</p>
-                  {exp.description?.map((desc, index) => (
-                    <p
-                      key={index}
-                      className="text-sm sm:text-base mt-2 sm:mt-3 leading-relaxed text-gray-300"
-                    >
-                      🚀 {desc}
-                    </p>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      );
-      
+  return (
+    <div className="text-white min-h-screen py-4 px-4 sm:px-4 lg:px-16">
+      <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-neonGreen">
+        $ experience
+      </h2>
+      <div className="relative border-l-2 border-green-400 ml-2 sm:ml-4">
+        {experiences.map((exp, index) => (
+          <motion.div
+            key={index}
+            className="mb-8 sm:mb-10 ml-6 sm:ml-8"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+          >
+            <div className="absolute w-6 h-6 sm:w-12 sm:h-12 bg-transparent rounded-full -left-3 sm:-left-6 flex items-center justify-center shadow-lg">
+              <Image
+                src={exp.logo}
+                width={200}
+                height={80}
+                className="rounded-full border-4 z-50 border-gray-800"
+                alt="Company Logo"
+              />
+            </div>
+            <div className="bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+              <h3 className="text-xl sm:text-2xl font-semibold text-neonGreen">
+                {exp.role}
+              </h3>
+              <p className="text-base sm:text-lg text-gray-400">
+                {exp.company}
+              </p>
+              <p className="text-sm sm:text-base text-gray-500 italic">
+                {exp.duration}
+              </p>
+              {exp.description?.map((desc, index) => (
+                <p
+                  key={index}
+                  className="text-sm sm:text-base mt-2 sm:mt-3 leading-relaxed text-gray-300"
+                >
+                  🚀 {desc}
+                </p>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
 }

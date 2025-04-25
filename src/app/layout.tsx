@@ -20,7 +20,7 @@ const fontCode = FontCode({
 export const metadata: Metadata = {
   title: {
     default: DATA.name,
-    template: `%s | ${DATA.name}`,
+    template: "%s | Bhavya Suri – Full-Stack React & Next.js Developer",
   },
   description: DATA.description,
   openGraph: {
@@ -42,12 +42,8 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  twitter: {
-    title: `${DATA.name}`,
-    card: "summary_large_image",
-  },
   icons: {
-    icon: "./indexImage.ico",
+    icon: "./Portfolio.ico",
   },
 };
 

@@ -105,13 +105,13 @@ export default function AboutPage() {
     <div className="min-h-screen py-2 px-4 lg:px-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div className="flex flex-col gap-6">
-        <motion.h2
+          <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-3xl sm:text-4xl text-neonGreen"
           >
-         $ about me
+            $ about me
           </motion.h2>
           <p className="leading-relaxed text-base">
             <span className="text-yellow-400">&gt; Hi, I am</span>{" "}
@@ -177,7 +177,6 @@ export default function AboutPage() {
               &gt; Always learning. Always innovating.
             </span>
           </p>
-         
         </div>
         <div className="flex flex-col gap-2">
           <div className="relative flex h-[400px] w-full flex-col items-center justify-center overflow-hidden">
@@ -234,49 +233,49 @@ export default function AboutPage() {
         </div>
       </div>
       <div className="flex flex-wrap gap-6 text-xl mt-6 justify-center mt-3">
-            <Link
-              href="https://github.com/Bhavya044"
-              target="_blank"
-              aria-label="GitHub"
-            >
-              <div className="group flex items-center gap-3 p-4 rounded-2xl bg-black/30 backdrop-blur-md shadow-lg hover:shadow-neonGreen transition-all duration-300 hover:scale-105">
-                <FaGithub
-                  className="text-white group-hover:text-neonGreen transition-all duration-300"
-                  size={24}
-                />
-                <span className="text-white group-hover:text-neonGreen hidden sm:block">
-                  GitHub
-                </span>
-              </div>
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/bhavya-suri044/"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
-              <div className="group flex items-center gap-3 p-4 rounded-2xl bg-black/30 backdrop-blur-md shadow-lg hover:shadow-blue-500 transition-all duration-300 hover:scale-105">
-                <FaLinkedin
-                  className="text-white group-hover:text-blue-500 transition-all duration-300"
-                  size={24}
-                />
-                <span className="text-white group-hover:text-blue-500 hidden sm:block">
-                  LinkedIn
-                </span>
-              </div>
-            </Link>
-            <Link
-              href="https://www.geeksforgeeks.org/user/bhavya0381/"
-              target="_blank"
-              aria-label="GeeksforGeeks"
-            >
-              <div className="group flex items-center gap-3 p-4 rounded-2xl bg-black/30 backdrop-blur-md shadow-lg hover:shadow-green-500 transition-all duration-300 hover:scale-105">
-                <Icons.gfg />
-                <span className="text-white group-hover:text-green-500 hidden sm:block">
-                  GeeksforGeeks
-                </span>
-              </div>
-            </Link>
-            {/* <Link
+        <Link
+          href="https://github.com/Bhavya044"
+          target="_blank"
+          aria-label="GitHub"
+        >
+          <div className="group flex items-center gap-3 p-4 rounded-2xl bg-black/30 backdrop-blur-md shadow-lg hover:shadow-neonGreen transition-all duration-300 hover:scale-105">
+            <FaGithub
+              className="text-white group-hover:text-neonGreen transition-all duration-300"
+              size={24}
+            />
+            <span className="text-white group-hover:text-neonGreen hidden sm:block">
+              GitHub
+            </span>
+          </div>
+        </Link>
+        <Link
+          href="https://www.linkedin.com/in/bhavya-suri044/"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <div className="group flex items-center gap-3 p-4 rounded-2xl bg-black/30 backdrop-blur-md shadow-lg hover:shadow-blue-500 transition-all duration-300 hover:scale-105">
+            <FaLinkedin
+              className="text-white group-hover:text-blue-500 transition-all duration-300"
+              size={24}
+            />
+            <span className="text-white group-hover:text-blue-500 hidden sm:block">
+              LinkedIn
+            </span>
+          </div>
+        </Link>
+        <Link
+          href="https://www.geeksforgeeks.org/user/bhavya0381/"
+          target="_blank"
+          aria-label="GeeksforGeeks"
+        >
+          <div className="group flex items-center gap-3 p-4 rounded-2xl bg-black/30 backdrop-blur-md shadow-lg hover:shadow-green-500 transition-all duration-300 hover:scale-105">
+            <Icons.gfg />
+            <span className="text-white group-hover:text-green-500 hidden sm:block">
+              GeeksforGeeks
+            </span>
+          </div>
+        </Link>
+        {/* <Link
               href="https://leetcode.com/yourusername"
               target="_blank"
               aria-label="LeetCode"
@@ -291,7 +290,7 @@ export default function AboutPage() {
                 </span>
               </div>
             </Link> */}
-          </div>
+      </div>
     </div>
   );
 }

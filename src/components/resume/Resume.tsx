@@ -1,15 +1,13 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { FaDownload } from "react-icons/fa";
 import { AnimatedSubscribeButton } from "@/components/magicui/animated-subscribe-button";
 import { CheckIcon, ChevronRightIcon } from "lucide-react";
 
 const ResumeSection = () => {
   const resumeLink =
-    "https://drive.google.com/file/d/1734SexYmQu6tnYwls1np9WAZhVZLE_nj/preview";
+    "https://drive.google.com/file/d/1NpF9ji5cZEWxkN38htEqmipdIkFmd5KO/preview";
   const downloadLink =
-    "https://drive.google.com/uc?export=download&id=1734SexYmQu6tnYwls1np9WAZhVZLE_nj";
+    "https://drive.google.com/uc?export=download&id=1NpF9ji5cZEWxkN38htEqmipdIkFmd5KO";
 
   return (
     <div className="min-h-screen flex flex-col items-center px-4 sm:px-6 lg:px-16 w-full py-8">
