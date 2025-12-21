@@ -29,7 +29,8 @@ export default function Home() {
             accelerate delivery and maintain{' '}
             <span className="text-emerald-400">production-grade code quality</span>.
             <br />
-            Let's build something <span className="text-green-400">awesome together</span>! 🚀✨
+            Let&apos;s build something <span className="text-green-400">awesome together</span>!
+            🚀✨
           </div>
           {/* Open to Work Strip */}
           <div
