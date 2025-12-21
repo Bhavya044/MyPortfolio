@@ -1,61 +1,88 @@
-"use client";
+'use client'
 
-import { Card, CardContent } from "@/components/ui/card";
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import GitHubCalendar from "react-github-calendar";
-import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
-import { cn } from "@/lib/utils";
-import { FaGithub } from "react-icons/fa";
+import { InteractiveGridPattern } from '@/components/magicui/interactive-grid-pattern'
+import { Card, CardContent } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
+import GitHubCalendar from 'react-github-calendar'
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa'
 
 const projects = [
   {
-    title: "Pokémon Explorer",
+    title: 'Tatoz — Multi-Vendor E-Commerce Marketplace',
     description:
-      "A FullStack stack web app that allows users to explore Pokémon data fetched from the PokeAPI. Features include search, pagination, and a Pokémon-themed UI using Tailwind CSS. Optimized for performance and usability.",
-    techStack: ["TypeScript", "TailwindCSS", "Nextdotjs"],
-    image: "/pokeexplore.png",
-    video: "",
-    link: "https://github.com/Bhavya044/pokemon-explore",
+      'Architected a full-stack multi-vendor marketplace with dedicated customer, seller, and admin dashboards. Built seller onboarding, storefronts, product catalogs, and role-based admin controls. Implemented full order lifecycle including tracking, returns, refunds, and replacements. Developed automated settlements, invoicing, and financial adjustments. Integrated secure payments with webhook verification and real-time notifications via Socket.io. Deployed and maintained workloads on VPS using Nginx, PM2, Cloudflare, and secure configurations.',
+    techStack: ['react', 'nodedotjs', 'mongodb', 'postgresql', 'docker', 'socketdotio'],
+    image: '',
+    video: '',
+    link: '#',
   },
   {
-    title: "AI Recipe Generator",
+    title: 'CourierCart —  Courier Aggregator SaaS',
     description:
-      "An AI-powered web application that suggests personalized recipes based on the ingredients you have on hand. It uses machine learning models to simplify meal planning and make cooking more enjoyable with real-time, tailored recipe suggestions.",
-    techStack: ["react", "nodedotjs", "Vercel"],
-    image: "", // No image provided to show avatar
-    video: "/recipe-gen.webm",
-    link: "https://github.com/Bhavya044/Ai-Recipe-Gen",
+      'Developed a multi-tenant courier aggregation platform integrating 10+ courier partners. Built admin and merchant dashboards for shipment management, billing, reconciliation, and monitoring. Integrated Shopify, WooCommerce, and Magento with automated order sync and webhooks. Implemented COD handling, weight discrepancy resolution, rate comparison, and real-time tracking.',
+    techStack: ['react', 'nodedotjs', 'postgresql', 'docker', 'amazonwebservices'],
+    image: '',
+    video: '',
+    link: 'https://app.couriercart.in/',
   },
   {
-    title: "Developer Portfolio",
+    title: 'Sellaze — Real-Time Online Auction Platform',
     description:
-      "A terminal-themed developer portfolio with Magic UI animations, orbiting skill icons, and seamless integration with Google Drive for resume hosting.",
-    techStack: ["React", "Next.js", "Tailwindcss"],
+      'Built live auction platform with real-time bidding, automated bidding, and synchronized timers. Integrated multi-gateway payments for subscriptions, credits, and auction winnings. Developed admin dashboard for auctions, users, approvals, notifications, and content. Built influencer referral system with automated payouts and retention logic.',
+    techStack: ['react', 'nodedotjs', 'socketdotio', 'mongodb', 'docker'],
+    image: '',
+    video: '',
+    link: 'https://sellaze.com/',
+  },
+  {
+    title: 'Pokémon Explorer',
+    description:
+      'A FullStack stack web app that allows users to explore Pokémon data fetched from the PokeAPI. Features include search, pagination, and a Pokémon-themed UI using Tailwind CSS. Optimized for performance and usability.',
+    techStack: ['TypeScript', 'TailwindCSS', 'Nextdotjs'],
+    image: '/pokeexplore.png',
+    video: '',
+    link: 'https://github.com/Bhavya044/pokemon-explore',
+  },
+  {
+    title: 'AI Recipe Generator',
+    description:
+      'An AI-powered web application that suggests personalized recipes based on the ingredients you have on hand. It uses machine learning models to simplify meal planning and make cooking more enjoyable with real-time, tailored recipe suggestions.',
+    techStack: ['react', 'nodedotjs', 'Vercel'],
+    image: '', // No image provided to show avatar
+    video: '/recipe-gen.webm',
+    link: 'https://github.com/Bhavya044/Ai-Recipe-Gen',
+  },
+  {
+    title: 'Developer Portfolio',
+    description:
+      'A terminal-themed developer portfolio with Magic UI animations, orbiting skill icons, and seamless integration with Google Drive for resume hosting.',
+    techStack: ['React', 'Next.js', 'Tailwindcss'],
     image:
-      "https://www.shutterstock.com/image-vector/coding-programming-software-creating-symbol-260nw-1844920264.jpg",
-    video: "",
-    link: "https://github.com/Bhavya044/MyPortfolio",
+      'https://www.shutterstock.com/image-vector/coding-programming-software-creating-symbol-260nw-1844920264.jpg',
+    video: '',
+    link: 'https://github.com/Bhavya044/MyPortfolio',
   },
   {
-    title: "Travel Gemini",
+    title: 'Travel Gemini',
     description:
-      "A React Native itinerary planner app integrated with Gemini AI for personalized travel recommendations, smart scheduling, and real-time updates, offering a seamless travel planning experience.",
-    techStack: ["android", "Node.js"],
-    image: "/travel.webp",
-    link: "https://github.com/Bhavya044/travelGemini",
+      'A React Native itinerary planner app integrated with Gemini AI for personalized travel recommendations, smart scheduling, and real-time updates, offering a seamless travel planning experience.',
+    techStack: ['android', 'Node.js'],
+    image: '/travel.webp',
+    link: 'https://github.com/Bhavya044/travelGemini',
   },
   {
-    title: "React Widget Application",
+    title: 'React Widget Application',
     description:
       "An interactive forecasting application displaying weather conditions, temperature, sunrise, sunset, pressure, humidity, and India's latest news. Features include real-time data fetching, responsive design, and autocomplete for country selection with robust error handling for improved user experience.",
-    techStack: ["React", "Axios"],
-    image: "", // No image provided to show avatar
-    video: "",
-    link: "https://github.com/Bhavya044/Widget-app",
+    techStack: ['React', 'Axios'],
+    image: '', // No image provided to show avatar
+    video: '',
+    link: 'https://github.com/Bhavya044/Widget-app',
   },
-];
+]
 
 export default function ProjectsPage() {
   return (
@@ -63,7 +90,7 @@ export default function ProjectsPage() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
         className="text-3xl mb-10 sm:text-4xl text-neonGreen"
       >
         $ projects
@@ -71,7 +98,7 @@ export default function ProjectsPage() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
+        transition={{ duration: 0.9, ease: 'easeOut' }}
         className="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10"
       >
         {projects.map((project, index) => (
@@ -81,27 +108,23 @@ export default function ProjectsPage() {
           >
             <InteractiveGridPattern
               className={cn(
-                "absolute inset-0 z-20 opacity-20 rounded-3xl pointer-events-none",
-                "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
-                "inset-x-0 inset-y-[-30%] border-gray-200 border h-[200%] skew-y-12"
+                'absolute inset-0 z-20 opacity-20 rounded-3xl pointer-events-none',
+                '[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]',
+                'inset-x-0 inset-y-[-30%] border-gray-200 border h-[200%] skew-y-12',
               )}
             />
             <motion.div
               whileHover={{ scale: 1.06, y: -12 }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               viewport={{ once: true }}
               className="relative z-10 w-full max-w-md"
             >
               <Card className="group backdrop-blur-2xl shadow-2xl rounded-3xl overflow-hidden hover:shadow-lg">
                 <div className="relative overflow-hidden flex items-center justify-center bg-gray-800 h-48">
                   {project.video ? (
-                    <video
-                      src={project.video}
-                      controls
-                      className="object-cover w-full h-46"
-                    />
+                    <video src={project.video} controls className="object-cover w-full h-46" />
                   ) : project.image ? (
                     <Image
                       src={project.image}
@@ -113,10 +136,10 @@ export default function ProjectsPage() {
                   ) : (
                     <div className="flex items-center justify-center w-full h-full text-4xl font-semibold text-white bg-gradient-to-br from-gray-700 to-gray-900">
                       {project.title
-                        .split(" ")
+                        .split(' ')
                         .slice(0, 3)
                         .map((word) => word.charAt(0))
-                        .join("")
+                        .join('')
                         .toUpperCase()}
                     </div>
                   )}
@@ -145,16 +168,25 @@ export default function ProjectsPage() {
                       </span>
                     ))}
                   </div>
-                  <Link
-                    href={project.link}
-                    target="_blank"
-                    className="text-neonGreen hover:text-neonGreen/80 hover:underline underline-offset-4 transition-all duration-300 text-sm font-medium flex items-center gap-2 group"
-                  >
-                    <FaGithub className="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-1" />
-                    <span className="group-hover:underline">
-                      View on GitHub
-                    </span>
-                  </Link>
+                  {project.link && project.link !== '#' && (
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      className="text-neonGreen hover:text-neonGreen/80 hover:underline underline-offset-4 transition-all duration-300 text-sm font-medium flex items-center gap-2 group"
+                    >
+                      {project.link.includes('github.com') ? (
+                        <>
+                          <FaGithub className="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-1" />
+                          <span className="group-hover:underline">View on GitHub</span>
+                        </>
+                      ) : (
+                        <>
+                          <FaExternalLinkAlt className="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-1" />
+                          <span className="group-hover:underline">Visit Live Site</span>
+                        </>
+                      )}
+                    </Link>
+                  )}
                 </CardContent>
               </Card>
             </motion.div>
@@ -168,11 +200,9 @@ export default function ProjectsPage() {
         viewport={{ once: true }}
         className="mt-20 relative z-10 bg-gradient-to-br backdrop-blur-xl p-6 rounded-3xl border border-gray-700 shadow-2xl"
       >
-        <h2 className="text-xl font-semibold text-neonGreen mb-4">
-          &gt; GitHub Contributions
-        </h2>
+        <h2 className="text-xl font-semibold text-neonGreen mb-4">&gt; GitHub Contributions</h2>
         <GitHubCalendar username="Bhavya044" />
       </motion.div>
     </div>
-  );
+  )
 }

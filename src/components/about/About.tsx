@@ -19,6 +19,7 @@ export default function AboutPage() {
     "express",
     "tailwindcss",
     "mongodb",
+    "postgresql",
     "docker",
     "vercel",
     "git",
@@ -34,24 +35,48 @@ export default function AboutPage() {
     "eslint",
     "prettier",
     "postman",
+    "vite",
+    "socketdotio",
   ];
 
   const frontendSkills = [
-    "React.js",
+    "React 18/19",
     "Next.js",
+    "Vite",
     "TypeScript",
     "JavaScript",
+    "Tailwind CSS",
+    "Ant Design",
+    "Redux Toolkit",
+    "React Query",
     "WCAG",
     "HTML5",
     "CSS3",
-    "Tailwind CSS",
-    "Redux",
     "GraphQL",
     "Storybook",
   ];
 
-  const backendSkills = ["Node.js", "Express", "REST API", "Java"];
-  const databaseSkills = ["MongoDB", "MySQL"];
+  const backendSkills = [
+    "Node.js",
+    "Express.js",
+    "REST APIs",
+    "Webhooks",
+    "Socket.io",
+    "Java",
+  ];
+  const databaseSkills = ["MongoDB (Mongoose)", "PostgreSQL", "Drizzle ORM"];
+  const infrastructureSkills = [
+    "VPS",
+    "Linux",
+    "Nginx",
+    "PM2",
+    "Docker",
+    "CI/CD",
+    "AWS S3",
+    "Cloudinary",
+  ];
+  const paymentSkills = ["Razorpay", "Stripe", "PayPal", "Secure Webhook Handling"];
+  const securitySkills = ["JWT", "RBAC", "2FA", "WebAuthn", "SaaS", "Multi-Tenant", "Microservices"];
   const toolsSkills = [
     "Git",
     "GitHub",
@@ -67,17 +92,11 @@ export default function AboutPage() {
 
   const education = [
     {
-      degree: "Bachelor of Technology in Computer Science and Engineering",
-      institution: "Chitkara University, Punjab",
+      degree: "Bachelor of Engineering — Computer Science",
+      institution: "Chitkara University, Punjab, India",
       duration: "2019 - 2023",
       description:
-        "Graduated with First Class Honors, focusing on software development and web technologies.",
-    },
-    {
-      degree: "Higher Secondary Education",
-      institution: "Dav Public School, Chandigarh",
-      duration: "2017 - 2019",
-      description: "Specialized in Science and Mathematics.",
+        "Graduated with GPA: 9.75, focusing on software development and web technologies.",
     },
   ];
 
@@ -113,70 +132,96 @@ export default function AboutPage() {
           >
             $ about me
           </motion.h2>
-          <p className="leading-relaxed text-base">
-            <span className="text-yellow-400">&gt; Hi, I am</span>{" "}
-            <span className="text-cyan-400">Bhavya</span> <br />
-            <span className="text-white">
-              &gt; Full Stack Developer with 2+ years of experience.
-            </span>{" "}
-            <br />
-            <span className="text-white">
-              &gt; Passionate about building scalable and accessible web
-              applications.
-            </span>
-            <br />
-            <span className="text-white">
-              &gt; I craft intuitive solutions using modern technologies.
-            </span>
-            <br />
-            <span className="text-white">
-              &gt; Constantly exploring the latest tech trends.
-            </span>
-            <br />
-            <span className="text-white">
-              &gt; 📧 Email:{" "}
-              <a
-                href="mailto:bhavyasuri.bs23@gmail.com"
-                className="text-neonGreen hover:underline"
-              >
-                bhavyasuri.bs23@gmail.com
-              </a>
-            </span>
-            <br />
-            <span className="text-white">
-              &gt; 📞 Phone:{" "}
-              <a
-                href="tel:+916283315811"
-                className="text-neonGreen hover:underline"
-              >
-                +91 6283315811
-              </a>
-            </span>
-          </p>
+          <div className="leading-relaxed text-base">
+            <p className="mb-4">
+              <span className="text-yellow-400">&gt; Hi, I am</span>{" "}
+              <span className="text-cyan-400">Bhavya</span> <br />
+              <span className="text-white">
+                &gt; Results-Driven Full-Stack Developer | Turn Ideas Into Revenue-Generating Products
+              </span>{" "}
+              <br />
+              <span className="text-white">
+                &gt; Delivered 3+ Production SaaS Platforms generating real revenue | 50% Performance Improvements | 30% Faster Development Cycles
+              </span>
+              <br />
+              <span className="text-white">
+                &gt; End-to-End Ownership: From concept to production, including payments, infrastructure & scaling
+              </span>
+              <br />
+              <span className="text-white">
+                &gt; Available for Immediate Projects | Fast Turnaround | Fixed-Price or Hourly | 24/7 Support
+              </span>
+            </p>
+            <p className="mb-4">
+              <span className="text-white">
+                &gt; 📧 Email:{" "}
+                <a
+                  href="mailto:bhavyasuri.bs23@gmail.com"
+                  className="text-neonGreen hover:underline"
+                >
+                  bhavyasuri.bs23@gmail.com
+                </a>
+              </span>
+              <br />
+              <span className="text-white">
+                &gt; 📞 Phone:{" "}
+                <a
+                  href="tel:+916283315811"
+                  className="text-neonGreen hover:underline"
+                >
+                  +91-6283315811
+                </a>
+              </span>
+              <br />
+              <span className="text-white">
+                &gt; 🌐 Portfolio:{" "}
+                <a
+                  href="https://bhavyasuridev.tech"
+                  target="_blank"
+                  className="text-neonGreen hover:underline"
+                >
+                  bhavyasuridev.tech
+                </a>
+              </span>
+              <br />
+              <span className="text-white">
+                &gt; 📍 Location: Punjab, India
+              </span>
+            </p>
+          </div>
 
-          <p className="leading-relaxed text-lg">
-            <span className="text-yellow-400">&gt; Expertise:</span>
+          <div className="leading-relaxed text-lg">
+            <span className="text-yellow-400">&gt; Core Skills:</span>
             <br />
             <span className="text-red-400">
-              &gt; - Frontend Development:
+              &gt; - Frontend:
             </span>{" "}
             {frontendSkills.join(", ")}
             <br />
             <span className="text-purple-400">
-              &gt; - Backend Development:
+              &gt; - Backend:
             </span>{" "}
             {backendSkills.join(", ")}
             <br />
             <span className="text-indigo-400">&gt; - Databases:</span>{" "}
             {databaseSkills.join(", ")}
             <br />
-            <span className="text-pink-400">&gt; - Tools & Testing:</span>{" "}
+            <span className="text-cyan-400">&gt; - Infrastructure:</span>{" "}
+            {infrastructureSkills.join(", ")}
+            <br />
+            <span className="text-green-400">&gt; - Payments:</span>{" "}
+            {paymentSkills.join(", ")}
+            <br />
+            <span className="text-orange-400">&gt; - Security & Architecture:</span>{" "}
+            {securitySkills.join(", ")}
+            <br />
+            <span className="text-pink-400">&gt; - Tools:</span>{" "}
             {toolsSkills.join(", ")}
             <br />
             <span className="text-white">
               &gt; Always learning. Always innovating.
             </span>
-          </p>
+          </div>
         </div>
         <div className="flex flex-col gap-2">
           <div className="relative flex h-[400px] w-full flex-col items-center justify-center overflow-hidden">

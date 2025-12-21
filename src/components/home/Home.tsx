@@ -19,26 +19,20 @@ export default function Home() {
             </TypingAnimation>
           </div>
 
-          <div className="text-4xl bg-clip-text">A Full Stack Developer</div>
+          <div className="text-4xl bg-clip-text">Senior Full-Stack Developer</div>
 
           <div className="text-base leading-relaxed text-gray-300">
-            with experience in crafting{" "}
-            <span className="text-orange-400">scalable web apps</span> using{" "}
-            <span className="text-cyan-400">React / Next</span>,{" "}
-            <span className="text-purple-400">TypeScript</span>, and{" "}
-            <span className="text-pink-400">Express.js</span>.
+            with strong experience building{" "}
+            <span className="text-orange-400">scalable SaaS platforms</span>,{" "}
+            <span className="text-cyan-400">marketplaces</span>, and{" "}
+            <span className="text-purple-400">real-time systems</span>.
             <br />
-            In my free time, you will find me{" "}
-            <span className="text-yellow-400">
-              exploring the latest tech trends
-            </span>
-            ,{" "}
-            <span className="text-emerald-400">
-              tinkering with side projects
-            </span>
-            , or binge-watching{" "}
-            <span className="text-red-400">coding tutorials</span> I’ll probably
-            never use. 😄 Let’s build something{" "}
+            Proven ownership of <span className="text-pink-400">end-to-end architecture</span> including frontend, backend, databases, payments, and VPS deployments.
+            <br />
+            Uses <span className="text-yellow-400">AI-driven development workflows</span> to accelerate delivery and maintain{" "}
+            <span className="text-emerald-400">production-grade code quality</span>.
+            <br />
+            Let's build something{" "}
             <span className="text-green-400">awesome together</span>! 🚀✨
           </div>
           {/* Open to Work Strip */}
