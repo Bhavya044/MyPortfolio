@@ -3,9 +3,9 @@ import { motion } from 'framer-motion'
 import { CheckIcon, ChevronRightIcon } from 'lucide-react'
 
 const ResumeSection = () => {
-  const resumeLink = 'https://drive.google.com/file/d/1734SexYmQu6tnYwls1np9WAZhVZLE_nj/preview'
+  const resumeLink = 'https://drive.google.com/file/d/1x39FqXoQwr1kcKVvinJ-23EhDwRq9On6/preview'
   const downloadLink =
-    'https://drive.google.com/uc?export=download&id=1734SexYmQu6tnYwls1np9WAZhVZLE_nj'
+    'https://drive.google.com/uc?export=download&id=1x39FqXoQwr1kcKVvinJ-23EhDwRq9On6'
 
   return (
     <div className="min-h-screen flex flex-col items-center px-4 sm:px-6 lg:px-16 w-full py-8">
